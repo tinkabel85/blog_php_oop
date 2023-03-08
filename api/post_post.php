@@ -16,3 +16,4 @@ $post = (new Post(new DatabaseEngine()))
   ->setAuthor(new Author($authorName));
 
 $post->save();
+header("Location: get_posts.php");

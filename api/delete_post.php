@@ -13,4 +13,4 @@ if (empty($id)) {
 
 
 //call the static function
-Post::loadPost(new DatabaseEngine(), 1234);
+//Post::loadPost(new DatabaseEngine(), 1234);
