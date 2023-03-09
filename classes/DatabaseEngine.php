@@ -26,8 +26,7 @@ class DatabaseEngine
     unlink($this->docRoot . $fileName);
   }
 
-  public function displayPost(string $fileName) : string {
-  
+  public function getFile(string $fileName) : string {
     $file = fopen($this->docRoot . $fileName, 'r');
     $content = file_get_contents($this->docRoot . $fileName);
     fclose($file);

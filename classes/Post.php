@@ -72,7 +72,7 @@ class Post
     // read a file from db -> dbEngine should return json from file
     // this func should parse then json and init a Post obj
     //return that Post obj
-    $content = $databaseEngine->displayPost('post_' . $id);
+    $content = $databaseEngine->getFile('post_' . $id);
     $data = json_decode($content, true);
 
     $post = new Post($databaseEngine);
