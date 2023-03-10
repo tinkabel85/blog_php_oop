@@ -12,5 +12,9 @@ class Request {
     public function getFromGet(string $key, $defaultValue = null): string {
         return $this->getData[$key] ?? $defaultValue;
     }
+  public function getFromPost(string $key, $defaultValue = null): string
+  {
+    return $this->postData[$key] ?? $defaultValue;
+  }
 
 }
