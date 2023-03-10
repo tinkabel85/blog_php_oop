@@ -4,11 +4,13 @@ namespace Views;
 
 use Models\PostPostModel;
 
-class PostPostView {
+class PostPostView
+{
 
   private array $output = [];
 
-  public function generate(PostPostModel $postPostModel) {
+  public function generate(PostPostModel $postPostModel)
+  {
     $this->output = [
       'status' => $postPostModel->getSuccess() ? 'Success' : 'Error',
       'message' => $postPostModel->getMessage(),

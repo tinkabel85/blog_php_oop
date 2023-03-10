@@ -14,7 +14,7 @@ class PostPostController {
     private PostPostModel $postPostModel) 
     {}
 
-  public function run(Request $request) {
+  public function run(Request $request) : PostPostView {
 
     $title = $request->getFromPost('title', '');
     $content = $request->getFromPost('content', '');
