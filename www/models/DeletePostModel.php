@@ -2,7 +2,7 @@
 
 namespace Models;
 
-class DeletePostModel extends Model
+class DeletePostModel extends Model 
 {
   private int $deletedPostId = 0;
 
@@ -17,8 +17,8 @@ class DeletePostModel extends Model
     return $this->deletedPostId;
   }
 
-  public static function build(): Model
-  {
-    return new DeletePostModel();
-  }
+  // public static function build(): Model
+  // {
+  //   return new DeletePostModel();
+  // }
 }

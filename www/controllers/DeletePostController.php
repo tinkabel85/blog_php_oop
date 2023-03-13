@@ -7,9 +7,6 @@ use Models\DeletePostModel;
 use Models\Request;
 use Views\DeletePostView;
 use Views\View;
-use Controllers\Controller; 
-
-
 
 class DeletePostController implements Controller
 {

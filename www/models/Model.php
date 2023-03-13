@@ -28,6 +28,6 @@ abstract class Model {
     return $this->message;
   }
 
-  abstract public static function build(): self;
+  //abstract public static function build(): self;
 
 }

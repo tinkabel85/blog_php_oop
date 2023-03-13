@@ -31,9 +31,9 @@ class GetPostsModel extends Model
     return json_encode(['posts' => $postsArray]);
   }
 
-  public static function build(): Model
-  {
-    return new GetPostsModel();
-  }
+  // public static function build(): Model
+  // {
+  //   return new GetPostsModel();
+  // }
 
 }

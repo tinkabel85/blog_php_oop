@@ -9,7 +9,7 @@ use Views\PostPostView;
 use Views\View;
 use Controllers\Controller; 
 
-class PostPostController implements Controller {
+class PostPostController implements Controller{
 
   public function __construct(
     private PostPostModel $postPostModel) 

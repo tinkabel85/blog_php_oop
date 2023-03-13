@@ -8,33 +8,32 @@ use Models\Request;
 use Views\EditPostView;
 use Views\View;
 
-class EditPostController
+class EditPostController implements Controller
 {
 
   public function __construct(
-    private EditPostModel $editPostModel
-  ) {}
-
+    private EditPostModel $editPostModel)
+  {
+  }
 
   public function run(Request $request): View
   {
-    $id = $request->getFromPost('id', 0);
+    $id = $request->getFromPost('id', '');
     $title = $request->getFromPost('title', '');
     $content = $request->getFromPost('content', '');
     $authorName = $request->getFromPost('author_name', '');
 
-      if (empty($id) || empty($title) || empty($content) || empty($authorName)) {
-        $this->editPostModel->setSuccess(false);
-        $this->editPostModel->setMessage('Error: invalid input!');
+    if (empty($id) || empty($title) || empty($content) || empty($authorName)) {
+      $this->editPostModel->setSuccess(false);
+      $this->editPostModel->setMessage('Error: invalid input!');
     } else {
       try {
-        $post =
-        \POST::loadPost(new \DatabaseEngine(), $id)->setTitle($title)->setAuthor(new \Author($authorName))->setContent($content);
+        $post = (\Post::loadPost(new \DatabaseEngine, $id))->setTitle($title)->setContent($content)->setAuthor(new \Author($authorName));
         $post->save();
-  
+
         $this->editPostModel->setSuccess(true);
-        $this->editPostModel->setMessage('Success');
-        $this->editPostModel->setEditedPostId($id);
+        $this->editPostModel->setMessage('Succes');
+        $this->editPostModel->setEditedPost($post);
       } catch (Exception $e) {
         $this->editPostModel->setSuccess(false);
         $this->editPostModel->setMessage('Error: ' . $e->getMessage());
