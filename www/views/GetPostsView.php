@@ -14,6 +14,8 @@ class GetPostsView
     $this->output = [
       'status' => $getPostsModel->getSuccess() ? 'Success' : 'Error',
       'message' => $getPostsModel->getMessage(),
+      'data' => [
+        'posts' => $getPostsModel->getPostsToString()],
     ];
   }
   public function toString(): string

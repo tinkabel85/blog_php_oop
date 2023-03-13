@@ -1,8 +1,8 @@
 <?php
 
 include('import.php');
-$post = POST::loadPost(new DatabaseEngine(), $_GET['id']);
 
+$post = \POST::loadPost(new \DatabaseEngine(), $_GET['id']);
 
 ?>
 

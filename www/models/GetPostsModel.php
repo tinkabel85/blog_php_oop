@@ -7,6 +7,8 @@ class GetPostsModel
   private bool $success = false;
   private string $message = '';
 
+  private array $posts = [];
+
 
   public function setSuccess(bool $success): self
   {
@@ -30,14 +32,29 @@ class GetPostsModel
     return $this->message;
   }
 
-  // public function setPostedTitle(int $postedTitle): self
-  // {
-  //   $this->postedTitle = $postedTitle;
-  //   return $this;
-  // }
+  public function setPosts(array $posts): self
+  {
+    $this->posts = $posts;
+    return $this;
+  }
 
-  // public function getPostedTitle(): string
-  // {
-  //   return $this->postedTitle;
-  // }
+  public function getPosts(): array
+  {
+    return $this->posts;
+  }
+
+  public function getPostsToString(): string
+  {
+    $postsArray = array_map(function ($post) {
+      return [
+        'id' => $post->getId(),
+        'title' => $post->getTitle(),
+        'content' => $post->getContent(),
+        'author' => $post->getAuthor(),
+      ];
+    }, $this->posts);
+
+    return json_encode(['posts' => $postsArray]);
+  }
+
 }

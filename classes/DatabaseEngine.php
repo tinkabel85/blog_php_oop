@@ -26,14 +26,16 @@ class DatabaseEngine
     unlink($this->docRoot . $fileName);
   }
 
-  public function getFile(string $fileName) : string {
+  public function getFile(string $fileName): string
+  {
     $file = fopen($this->docRoot . $fileName, 'r');
     $content = file_get_contents($this->docRoot . $fileName);
     fclose($file);
     return $content;
   }
 
-  public function getAllFiles(): array {
+  public function getAllFiles(): array
+  {
     $files = glob($this->docRoot . 'post_*');
     return $files;
   }
