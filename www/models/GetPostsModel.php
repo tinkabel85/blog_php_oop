@@ -2,35 +2,9 @@
 
 namespace Models;
 
-class GetPostsModel
+class GetPostsModel extends Model
 {
-  private bool $success = false;
-  private string $message = '';
-
   private array $posts = [];
-
-
-  public function setSuccess(bool $success): self
-  {
-    $this->success = $success;
-    return $this;
-  }
-
-  public function getSuccess(): bool
-  {
-    return $this->success;
-  }
-
-  public function setMessage(string $message): self
-  {
-    $this->message = $message;
-    return $this;
-  }
-
-  public function getMessage(): string
-  {
-    return $this->message;
-  }
 
   public function setPosts(array $posts): self
   {
@@ -55,6 +29,11 @@ class GetPostsModel
     }, $this->posts);
 
     return json_encode(['posts' => $postsArray]);
+  }
+
+  public static function build(): Model
+  {
+    return new GetPostsModel();
   }
 
 }

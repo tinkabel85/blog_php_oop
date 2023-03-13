@@ -3,14 +3,18 @@
 namespace Views;
 
 use Models\EditPostModel;
+use Models\Model;
 
-class EditPostView
+class EditPostView implements View
 {
 
   private array $output = [];
 
-  public function generate(EditPostModel $editPostModel)
+  public function generate(Model $editPostModel): void
   {
+
+    /**  @var EditPostModel $editPostModel */
+
     $this->output = [
       'status' => $editPostModel->getSuccess() ? 'Success' : 'Error',
       'message' => $editPostModel->getMessage(),

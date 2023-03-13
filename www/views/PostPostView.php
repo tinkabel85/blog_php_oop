@@ -3,12 +3,16 @@
 namespace Views;
 
 use Models\PostPostModel;
+use Models\Model;
 
-class PostPostView {
+class PostPostView implements View
+{
 
   private array $output = [];
 
-  public function generate(PostPostModel $postPostModel) {
+  public function generate(Model $postPostModel): void
+  {
+    /**  @var PostPostModel $postPostModel */
     $this->output = [
       'status' => $postPostModel->getSuccess() ? 'Success' : 'Error',
       'message' => $postPostModel->getMessage(),

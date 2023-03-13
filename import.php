@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 include('classes/Post.php');
 include('classes/Author.php');
@@ -16,4 +16,6 @@ include('www/views/DeletePostView.php');
 include('www/views/PostPostView.php');
 include('www/views/GetPostsView.php');
 include('www/views/EditPostView.php');
-
+include('www/views/View.php');
+include('www/models/Model.php');
+include('www/controllers/Controller.php');

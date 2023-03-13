@@ -3,14 +3,17 @@
 namespace Views;
 
 use Models\GetPostsModel;
+use Models\Model;
 
-class GetPostsView
+class GetPostsView implements View
 {
 
   private array $output = [];
 
-  public function generate(GetPostsModel $getPostsModel)
+  public function generate(Model $getPostsModel) : void
   {
+    /**  @var GetPostsModel $getPostsModel */
+
     $this->output = [
       'status' => $getPostsModel->getSuccess() ? 'Success' : 'Error',
       'message' => $getPostsModel->getMessage(),

@@ -2,19 +2,20 @@
 
 namespace Controllers;
 
-
 use Exception;
 use Models\PostPostModel;
 use Models\Request;
 use Views\PostPostView;
+use Views\View;
+use Controllers\Controller; 
 
-class PostPostController {
+class PostPostController implements Controller {
 
   public function __construct(
     private PostPostModel $postPostModel) 
     {}
 
-  public function run(Request $request) : PostPostView {
+  public function run(Request $request) : View {
 
     $title = $request->getFromPost('title', '');
     $content = $request->getFromPost('content', '');

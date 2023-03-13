@@ -2,33 +2,9 @@
 
 namespace Models;
 
-class PostPostModel {
-  private bool $success = false;
-  private string $message = '';
-
+class PostPostModel extends Model
+{
   private string $postedTitle = '';
-
-  public function setSuccess(bool $success): self
-  {
-    $this->success = $success;
-    return $this;
-  }
-
-  public function getSuccess(): bool
-  {
-    return $this->success;
-  }
-
-  public function setMessage(string $message): self
-  {
-    $this->message = $message;
-    return $this;
-  }
-
-  public function getMessage(): string
-  {
-    return $this->message;
-  }
 
   public function setPostedTitle(int $postedTitle): self
   {
@@ -41,4 +17,7 @@ class PostPostModel {
     return $this->postedTitle;
   }
 
+  public static function build(): Model {
+    return new PostPostModel();
+  }
 }

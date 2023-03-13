@@ -6,6 +6,7 @@ use Exception;
 use Models\EditPostModel;
 use Models\Request;
 use Views\EditPostView;
+use Views\View;
 
 class EditPostController
 {
@@ -15,7 +16,7 @@ class EditPostController
   ) {}
 
 
-  public function run(Request $request): EditPostView
+  public function run(Request $request): View
   {
     $id = $request->getFromPost('id', 0);
     $title = $request->getFromPost('title', '');

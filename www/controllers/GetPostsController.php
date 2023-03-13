@@ -7,8 +7,11 @@ use Exception;
 use Models\GetPostsModel;
 use Models\Request;
 use Views\GetPostsView;
+use Views\View;
+use Controllers\Controller; 
 
-class GetPostsController
+
+class GetPostsController implements Controller
 {
 
   public function __construct(
@@ -16,7 +19,7 @@ class GetPostsController
   ) {
   }
 
-  public function run(Request $request) : GetPostsView 
+  public function run(Request $request) : View 
   {
     try {
       $databaseEngine = new \DatabaseEngine();

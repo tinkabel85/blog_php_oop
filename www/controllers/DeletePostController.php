@@ -6,8 +6,12 @@ use Exception;
 use Models\DeletePostModel;
 use Models\Request;
 use Views\DeletePostView;
+use Views\View;
+use Controllers\Controller; 
 
-class DeletePostController
+
+
+class DeletePostController implements Controller
 {
 
   public function __construct(
@@ -15,7 +19,7 @@ class DeletePostController
   ) {
   }
 
-  public function run(Request $request): DeletePostView
+  public function run(Request $request): View
   {
     $id = $request->getFromGet('id', 0);
 
