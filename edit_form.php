@@ -1,7 +1,21 @@
 <?php
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 include('import.php');
-$post = POST::loadPost(new DatabaseEngine(), $_GET['id']);
+use Controllers\EditPostController;
+use Models\EditPostModel;
+use Models\Request;
+use Views\EditPostView;
+
+echo "Hello, world!";
+
+if (empty($_GET['id'])) {
+  die("No id provided");
+}
+$id = $_GET['id'];
+$post = \POST::loadPost(new \DatabaseEngine(), $id);
 
 
 ?>

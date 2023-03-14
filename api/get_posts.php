@@ -1,16 +1,13 @@
 <?php
 
+use Models\GetPostsModel;
+use Models\Request;
+use Controllers\GetPostsController;
+
 include('../import.php');
 
-$databaseEngine = new DatabaseEngine();
 
-$post = new Post($databaseEngine);
+$view = (new GetPostsController(new GetPostsModel()))->run(new Request($_POST, $_GET));
 
-$posts = $post->displayAllPosts($databaseEngine);
-
-foreach ($posts as $post) {
-  echo "<h1>" . $post->getTitle() . "</h1>";
-  echo "<p>" . $post->getContent() . "</p>";
-  echo "<p>By: " . $post->getAuthor()->getName() . "</p>";
-  echo "<hr>";
-}
+header('Content-Type: application/json;');
+echo $view->toString();
